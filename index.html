@@ -1,0 +1,210 @@
+
+<!DOCTYPE html>
+
+
+<html>
+  <head>
+    <title>Data Sources</title>
+    <script>
+      function myfunction(url) {
+ 
+ // Set the timeout to 10 seconds (10000 milliseconds)
+ const TIMEOUT = 10000;
+      
+    
+ // Make the fetch request with the timeout
+ const fetchData = async () => {
+   try {
+     const response = await fetch(url, { timeout: TIMEOUT }
+     , {
+ method: 'GET',
+ headers: {
+   "Content-Type": 'application/json',
+ },
+});
+console.log("got here")
+     const data = await response.json();
+     document.querySelector('#cookeSnow').textContent = data.cookeSnow;
+     document.querySelector('#cookeTemp').textContent = data.cookeTemp;
+     document.querySelector('#islandSnow').textContent = data.islandSnow;
+     document.querySelector('#islandTemp').textContent = data.islandTemp;
+     document.querySelector('#taylorSnow').textContent = data.taylorSnow;
+     document.querySelector('#taylorTemp').textContent = data.taylorTemp;
+     
+
+
+   } catch (error) {
+     console.error(error);
+   }
+ }
+
+ // Call the fetch function after 8 seconds
+ setTimeout(fetchData, 8000);
+}
+myfunction('https://z0nbop1cie.execute-api.us-east-1.amazonaws.com/default/SnotelProject')
+
+
+   </script>
+    <style>
+      /* Main page styles */
+      body {
+        background-color: #36393f;
+        color: #dcddde;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        font-size: 16px;
+        margin: 0;
+        padding: 0;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
+        max-width: 960px;
+        margin: 0 auto;
+        padding: 20px;
+      }
+
+      /* Individual data source styles */
+      .source {
+        background-color: #2f3136;
+        border-radius: 8px;
+        margin-bottom: 20px;
+        padding: 20px;
+        text-align: center;
+        width: calc(33.33% - 20px);
+      }
+
+      .source img {
+        border-radius: 4px;
+        margin-bottom: 10px;
+        max-width: 100%;
+      }
+
+      .source h2 {
+        justify-content: center;
+        align-items: center;
+  
+        color: #fff;
+        font-size: 20px;
+        margin: 0;
+        margin-bottom: 10px;
+      }
+
+      .data-points {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+
+      .data-point {
+        margin-bottom: 10px;
+        width: calc(50% - 5px);
+      }
+
+      .data-point p {
+        color: #b9bbbe;
+        display: inline;
+        margin: 0;
+      }
+
+      .data-point span {
+        color: #dcddde;
+        font-weight: bold;
+        display: inline;
+      }
+
+      /* Button styles */
+      .button-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 20px;
+      }
+
+      .button {
+        background-color: #7289da;
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        text-align: center;
+        text-decoration: none;
+      }
+
+      .button:hover {
+        background-color: #5f73bc;
+      }
+      
+    
+    </style>
+  </head>
+  <div style="text-align: center; display: flex;
+  justify-content: center;
+  align-items: center;">
+    <div class="source">
+      <h2>Results may take up to 15 seconds to load!</h2>
+    </div>
+  </div>
+  <body>
+  <body>
+    <div class="container">
+      <div class="source">
+        <img src="https://snotelphotos.s3.amazonaws.com/Cooke.jpg" alt="CookeCity?" />
+        <h2>Cooke City</h2>
+        <div class="data-points">
+          <div class="data-point">
+            <p>48HR SnowFall: </p>
+            <span id="cookeSnow"></span>
+          </div>
+          <div class="data-point">
+            <p>Max Temp(F): </p>
+            <span id="cookeTemp"></span>
+          </div>
+        </div>
+      </div>
+    
+    
+    
+    
+    
+      <div class="source">
+        <img src="https://snotelphotos.s3.amazonaws.com/Taylor.jpg" alt="Taylor?" />
+        <h2>Taylor's Fork</h2>
+        <div class="data-points">
+          <div class="data-point">
+            <p>48HR SnowFall: </p>
+      <span id="taylorSnow"></span>
+    </div>
+    <div class="data-point">
+      <p>Max Temp(F): </p>
+      <span id="taylorTemp"></span>
+          </div>
+        </div>
+      </div>
+      <div class="source">
+        <img src="https://snotelphotos.s3.amazonaws.com/Park.jpg" alt="IslandPark?" />
+        <h2>Island Park</h2>
+        <div class="data-points">
+          <div class="data-point">
+            <p>48HR SnowFall: </p>
+      <span id="islandSnow"></span>
+    </div>
+    <div class="data-point">
+      <p>Max Temp(F): </p>
+      <span id="islandTemp"></span>
+          </div>
+        </div>
+      </div>
+      
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+</body>
+</html>
+ 
